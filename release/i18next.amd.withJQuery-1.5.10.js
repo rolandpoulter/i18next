@@ -316,7 +316,7 @@
     
                 // Merge the query string and attach it to the url.
                 if (queryString.length) {
-                    queryString = ((url.indexOf('?') !== -1) ? '?' : '&') + queryString.join('&');
+                    queryString = ((url.indexOf('?') === -1) ? '?' : '&') + queryString.join('&');
                     url += queryString;
                 }
     
