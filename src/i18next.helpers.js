@@ -209,8 +209,10 @@ function _ajax(options) {
             }
 
             // Merge the query string and attach it to the url.
-            queryString = '?' + queryString.join('&');
-            url += queryString !== '?' ? queryString : '';
+            if (queryString.length) {
+                queryString = ((url.indexOf('?') !== -1) ? '?' : '&') + queryString.join('&');
+                url += queryString;
+            }
 
             // Make a JSONP call if neccessary.
             if(options.jsonp) {
